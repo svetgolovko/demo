@@ -1,0 +1,25 @@
+DROP TABLE IF EXISTS CLIENT;
+DROP sequence IF EXISTS  clients_id_seq;
+
+create sequence IF NOT EXISTS clients_id_seq;
+CREATE TABLE CLIENT (
+  id INT default clients_id_seq.nextval PRIMARY KEY,
+  SECURITY_NUMBER INT,
+  FIRST_NAME VARCHAR(250),
+  LAST_NAME VARCHAR(250) ,
+  PHONE VARCHAR(250) ,
+  COUNTRY VARCHAR(250),
+  ADDRESS VARCHAR(250)
+);
+
+DROP TABLE IF EXISTS PRODUCT;
+DROP sequence IF EXISTS  products_id_seq;
+
+create sequence IF NOT EXISTS products_id_seq;
+CREATE TABLE PRODUCT (
+  ID INT default products_id_seq.nextval  PRIMARY KEY,
+  BARCODE VARCHAR(250) NOT NULL,
+  PRICE_EUR float NOT NULL,
+  DESCRIPTION VARCHAR(250) NOT NULL,
+  RELEASE_DATE DATE DEFAULT NULL
+);

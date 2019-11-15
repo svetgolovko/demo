@@ -1,0 +1,57 @@
+<div class="card my-5">
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit()" #productForm="ngForm">
+      <div class="form-group">
+        <label for="barcode">Barcode</label>
+        <input type="text"
+               class="form-control"
+               id="barcode"
+               required
+               [(ngModel)]="product.barcode"  name="barcode"
+               placeholder="Enter product barcode "
+               #barcode="ngModel">
+      </div>
+      <div [hidden]="barcode.valid || barcode.pristine" class="alert alert-danger">Barcode is required</div>
+
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input type="text"
+               class="form-control"
+               id="description"
+               required
+               [(ngModel)]="product.description" name="description"
+               placeholder="Enter your description"
+               #description="ngModel">
+      </div>
+      <div [hidden]="description.valid || description.pristine" class="alert alert-danger">Description is required</div>
+
+      <div class="form-group">
+        <label for="price">Price</label>
+        <input type="text"
+               class="form-control"
+               id="price"
+               required
+               [(ngModel)]="product.priceEur" name="price"
+               placeholder="Enter product price"
+               #price="ngModel">
+      </div>
+      <div [hidden]="price.valid || price.pristine" class="alert alert-danger">Price is required</div>
+
+      <div class="form-group">
+        <label for="releaseDate">Release date</label>
+        <input type="text"
+               class="form-control"
+               id="releaseDate"
+               required
+               [(ngModel)]="product.releaseDate" name="releaseDate"
+               placeholder="Enter product release date"
+               #releaseDate="ngModel">
+      </div>
+      <div [hidden]="releaseDate.valid || releaseDate.pristine" class="alert alert-danger">Release date is required</div>
+
+      <button type="submit" [disabled]="!productForm.form.valid"
+              class="btn btn-info">Submit</button>
+    </form>
+  </div>
+</div>
+

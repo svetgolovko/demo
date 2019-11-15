@@ -1,0 +1,28 @@
+<div class="card my-5">
+  <div class="card-body">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Barcode</th>
+        <th scope="col">Description</th>
+        <th scope="col">Price</th>
+        <th scope="col">Release date</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let product of products" ng-click ="gotoClient(client)">
+        <td>
+          <a routerLink="/products/{{product.id}}">
+            <span class="badge">{{product.id}}</span> {{product.id}}
+          </a>
+        </td>
+        <td>{{ product.barcode }}</td>
+        <td>{{ product.description }}</td>
+        <td>{{ product.priceEur }}</td>
+        <td>{{ product.releaseDate }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
